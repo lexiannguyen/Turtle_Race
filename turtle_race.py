@@ -1,7 +1,7 @@
 import turtle
 import time
 import random
-
+#start/finish lines
 start = turtle.Turtle()
 start.speed(0)
 start.color("black")
@@ -18,19 +18,35 @@ start.goto(250, -400)
 start.penup()
 start.hideturtle()
 
-turtle1 = turtle.Turtle()
-turtle1.speed(0)
-turtle1.penup()
-turtle1.goto(-300, 200)
-turtle1.shape("turtle")
-turtle1.color("pink")
+#score/title 
 
-turtle2 = turtle.Turtle()
-turtle2.speed(0)
-turtle2.penup()
-turtle2.goto(-300, -200)
-turtle2.shape("turtle")
-turtle2.color("blue")
+#players
+thor = turtle.Turtle()
+thor.speed(2)
+thor.penup()
+thor.goto(-300, 200)
+thor.shape("turtle")
+thor.color("pink")
 
-distances = []
+loki = turtle.Turtle()
+loki.speed(2)
+loki.penup()
+loki.goto(-300, -100)
+loki.shape("turtle")
+loki.color("blue")
+
+#distances
+distances = [25, 18, 34, 47, 98, 67, 53, 72, 81, 27, 100, 136]
+totaldist = 500
+thordist = 0
+lokidist = 0
+
+while(thordist <= totaldist or lokidist <= totaldist):
+    x = random.choice(distances)
+    y = random.choice(distances)
+    thor.forward(x)
+    loki.forward(y)
+    thordist += x
+    lokidist += y
+
 turtle.mainloop()
