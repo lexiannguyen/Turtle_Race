@@ -18,8 +18,13 @@ start.goto(250, -400)
 start.penup()
 start.hideturtle()
 
-#score/title 
-
+#title 
+writer = turtle.Turtle()
+writer.penup()
+writer.goto(-220, 300)
+writer.write("Start", font=("Arial", 25))
+writer.goto(160, 300)
+writer.write("Finish", font=("Arial", 25))
 #players
 thor = turtle.Turtle()
 thor.speed(2)
@@ -49,4 +54,17 @@ while(thordist <= totaldist or lokidist <= totaldist):
     thordist += x
     lokidist += y
 
+ref = turtle.Turtle()
+ref.penup()
+ref.hideturtle()
+ref.goto(-220, -170)
+
+
+#score
+if thordist >= totaldist:
+    ref.write("The winner is Thor!", font=("Arial", 25))
+elif lokidist >= totaldist:
+    ref.write("The winner is Loki!", font=("Arial", 25))
+
+    
 turtle.mainloop()
