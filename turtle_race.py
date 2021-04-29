@@ -1,7 +1,7 @@
 import turtle
 import time
 import random
-#multiple races, ask user, clear screen, keep track of wins/lossesm print win percentage after least race
+#multiple races, ask user, clear screen, keep track of wins/losses print win percentage after least race
 
 
 
@@ -48,7 +48,7 @@ for x in range(numrace):
     thor = turtle.Turtle()
     thor.speed(0)
     thor.penup()
-    thor.goto(-300, 200)
+    thor.goto(-200, 200)
     thor.shape("turtle")
     thor.color("red")
     thor.speed(2)
@@ -56,13 +56,13 @@ for x in range(numrace):
     loki = turtle.Turtle()
     loki.speed(0)
     loki.penup()
-    loki.goto(-300, -100)
+    loki.goto(-200, -100)
     loki.shape("turtle")
     loki.color("dark green")
     loki.speed(2)
     #distances
-    distances = [25, 18, 34, 47, 98, 67, 53, 72, 81, 27, 100, 136, -10, -45, -39, -60,-25]
-    totaldist = 500
+    distances = [25, 18, 34, 47, 98, 67, 53, 72, 81, 27, 100, 136]
+    totaldist = 400
     thordist = 0
     lokidist = 0
     #moving
@@ -80,6 +80,7 @@ for x in range(numrace):
     ref.goto(-220, -170)
     #winner
     if thordist >= totaldist:
+        ref.clear()
         ref.write("The winner is Thor!", font=("Arial", 25))
         ref.goto(-220, -200)
         ref.write(f"Thor: {thordist} miles", font=("Arial", 25))
@@ -88,6 +89,7 @@ for x in range(numrace):
         thorscore += 1
         totalscore +=1
     elif lokidist >= totaldist:
+        ref.clear()
         ref.write("The winner is Loki!", font=("Arial", 25))
         ref.goto(-220, -200)
         ref.write(f"Thor: {thordist} miles", font=("Arial", 25))
@@ -95,20 +97,18 @@ for x in range(numrace):
         ref.write(f"Loki: {lokidist} miles", font=("Arial", 25))
         lokiscore += 1
         totalscore += 1
-    #updating score
-    #eraser = turtle.Turtle()??
-    #eraser.speed(0)??
-    #eraser.hideturtle()
-    #eraser.goto(90, -170)
-    #score section
+    
 
-    score = turtle.Turtle()
+    
+    score.clear()
     score.speed(0)
     score.penup()
     score.hideturtle()
     score.goto(70, -170)
+    
     score.write(f"Thor's Wins: {thorscore}", font=("Arial", 25))
     score.goto(70, -200)
+    
     score.write(f"Loki's Wins: {lokiscore}", font=("Arial", 25))
     #wait
     time.sleep(2)
@@ -132,14 +132,14 @@ stats.goto(-140, 70)
 stats.write(f"Loki's Wins: {lokiscore}", font=("Arial", 25))
 
 #winpercentage
-thorp = int(thorscore / totalscore)
-thorp = int(thorp * 100)
-lokip = int(lokiscore / totalscore)
-lokip = int(lokip * 100)
+thorp = int(thorscore)/int(totalscore)
+thorp2 = (thorp * 100)
+lokip = int(lokiscore)/int(totalscore)
+lokip2 = (lokip * 100)
 stats.goto(-140, 40)
-stats.write(f"Thor's Win Percentage: {thorp} %", font=("Arial", 25))
+stats.write(f"Thor's Win Percentage: {thorp2:.2f} %", font=("Arial", 25))
 stats.goto(-140, 10)
-stats.write(f"Loki's Win Percentage: {lokip} %", font=("Arial", 25))
+stats.write(f"Loki's Win Percentage: {lokip2:.2f} %", font=("Arial", 25))
 stats.goto(-140, -20)
 stats.write(f"Total Races: {totalscore}", font=("Arial", 25))
 
